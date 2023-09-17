@@ -4,7 +4,8 @@
   "info": {
     "singularName": "post",
     "pluralName": "posts",
-    "displayName": "post"
+    "displayName": "post",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,17 +15,17 @@
     "title": {
       "type": "string"
     },
-    "media": {
-      "allowedTypes": [
-        "images",
-        "videos"
-      ],
-      "type": "media",
-      "multiple": false
-    },
     "body": {
       "type": "richtext",
       "required": false
+    },
+    "tag": {
+      "type": "enumeration",
+      "enum": [
+        "gallery",
+        "comic"
+      ],
+      "required": true
     }
   }
 }
