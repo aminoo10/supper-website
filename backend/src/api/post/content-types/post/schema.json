@@ -4,8 +4,7 @@
   "info": {
     "singularName": "post",
     "pluralName": "posts",
-    "displayName": "post",
-    "description": ""
+    "displayName": "post"
   },
   "options": {
     "draftAndPublish": true
@@ -13,18 +12,11 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "body": {
       "type": "richtext",
-      "required": false
-    },
-    "tag": {
-      "type": "enumeration",
-      "enum": [
-        "gallery",
-        "comic"
-      ],
       "required": true
     }
   }

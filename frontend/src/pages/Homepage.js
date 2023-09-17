@@ -11,6 +11,21 @@ const POSTS = gql`
             attributes {
             title,
             body,
+            createdAt
+            }
+        }
+        }
+    }
+`
+
+const POSTS2 = gql`
+    query GetPosts {
+        posts {
+        data {
+            id,
+            attributes {
+            title,
+            body,
             createdAt,
             media {
                 data {
@@ -25,6 +40,7 @@ const POSTS = gql`
         }
     }
 `
+
 const convertISOToDate = (isoDate) => {
     const options = { year: 'numeric', 
                     month: 'long', 
@@ -40,7 +56,7 @@ const convertISOToDate = (isoDate) => {
 const url = process.env.REACT_APP_URL;
 
 export default function Homepage() {
-    const { loading, error, data } = useQuery(POSTS)
+    const { loading, error, data } = useQuery(POSTS);
 
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error :(</p>
@@ -54,8 +70,8 @@ export default function Homepage() {
                 <h2>{post.attributes.title}</h2>
                 <div className="inner-box">
                     <p className="date-created">Posted on {convertISOToDate(post.attributes.createdAt)}</p>
-                    <img src={`${url}${post.attributes.media.data.attributes.formats.small.url}`}
-                        alt={post.attributes.media.data.attributes.name} />
+                    {/* <img src={`${url}${post.attributes.media.data.attributes.formats.small.url}`}
+                        alt={post.attributes.media.data.attributes.name} /> */}
                     {/*<p>{post.attributes.body}</p>*/}
                     <ReactMarkdown>{post.attributes.body}</ReactMarkdown>
                 </div>
