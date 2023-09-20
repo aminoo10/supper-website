@@ -8,8 +8,8 @@ export default function SiteHeader() {
             <h1>* BANNER HERE *</h1>
         </div>
         <div className="links">
-            <Link to="/"><h2>HOME↓</h2></Link>
-            <Link to="/gallery"><h2>GALLERY↓</h2></Link>
+            <Link to="/">HOME↓</Link>
+            <Link to="/gallery">GALLERY↓</Link>
         </div>
     </div>
   )

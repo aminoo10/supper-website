@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "image_posts",
+  "info": {
+    "singularName": "image-post",
+    "pluralName": "image-posts",
+    "displayName": "image post",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

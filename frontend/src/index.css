@@ -23,26 +23,35 @@ h1,h2,h3,h4 {
 /* header */
 
 .site-header {
-  margin: 0 auto;
+  margin: 0 auto 1em auto;
   max-width: 980px;
   text-align: center;
 }
 
 .site-header .links {
   display: flex;
-  align-items: center;
+  justify-content: start;
   background-color: black;
   padding: 0 5px;
   height: 42px;
 }
 
 .site-header .links a {
-  margin-right: 1em;
+  display:inline-block;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 0 5px;
   text-decoration: none;
   color: white;
   cursor: pointer;
-
 }
+
+.site-header .links a:hover {
+  background-color: #414141;
+  color: #62ff47;
+}
+
+
 
 /* Blog posts/Homepage */
 
