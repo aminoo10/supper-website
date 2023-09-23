@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import PhotoSwipeLightbox from 'photoswipe';
-import 'photoswipe/photoswipe.css';
+import PhotoSwipeLightbox from 'photoswipe/lightbox';
+import 'photoswipe/dist/photoswipe.css';
 
 
 export default function ImageGallery(props) {
@@ -20,17 +20,19 @@ export default function ImageGallery(props) {
 
     const url = process.env.REACT_APP_URL;
 
-    console.log("this is the props passed through: ");
-    console.log(props);
+    // let data = Array.from(props);
+
+    console.log();
 
     
   return (
-    <div className="pswp-gallery">
-      {props.map(image => (
+    <div className="pswp-gallery" id={props.galleryID}>
+      {props.imageData.map(image => (
+        
         <a
             href={`${url}${image.attributes.image.data.attributes.url}`}
             data-psp-width={image.attributes.image.data.attributes.width}
-            data-pswp-height={image.attributes.image.data.attributes.width}
+            data-pswp-height={image.attributes.image.data.attributes.height}
             key={image.id}
             target="_blank"
             rel="noreferrer"

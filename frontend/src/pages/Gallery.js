@@ -26,9 +26,6 @@ query GetImages {
 }
 `
 
-
-
-
 export default function Gallery() {
 
   const { loading, error, data } = useQuery(IMAGES);
@@ -40,7 +37,7 @@ export default function Gallery() {
 
   return (
     <div>
-          <ImageGallery props={data.imagePosts.data}/>
+          <ImageGallery imageData={data.imagePosts.data} galleryID='portfolio-gallery'/>
     </div>
   )
 }
