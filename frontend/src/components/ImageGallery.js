@@ -12,10 +12,6 @@ export default function ImageGallery(props) {
         });
         lightbox.init();
 
-        return () => {
-            lightbox.destroy();
-            lightbox = null;
-        };
     }, []);
 
     const url = process.env.REACT_APP_URL;
@@ -27,13 +23,13 @@ export default function ImageGallery(props) {
     
   return (
     <div className="pswp-gallery" id={props.galleryID}>
-      {props.imageData.map(image => (
+      {props.imageData.map((image, index) => (
         
         <a
             href={`${url}${image.attributes.image.data.attributes.url}`}
             data-psp-width={image.attributes.image.data.attributes.width}
             data-pswp-height={image.attributes.image.data.attributes.height}
-            key={image.id}
+            key={props.galleryID + '-' + index}
             target="_blank"
             rel="noreferrer"
         >
