@@ -1,6 +1,8 @@
 import React from 'react'
 import { useQuery, gql } from '@apollo/client';
 import ImageGallery from '../components/ImageGallery';
+import SimpleGallery from '../components/SimpleGallery';
+import '../styles/Gallery.css';
 
 const usePhotoSwipe = false;
 const url = process.env.REACT_APP_URL;
@@ -39,7 +41,9 @@ export default function Gallery() {
 
   return (
     <div>
-      {!usePhotoSwipe && <div className="gallery">
+
+      { !usePhotoSwipe && <SimpleGallery images={data.imagePosts.data}/> }
+      {/* {!usePhotoSwipe && <div className="gallery">
         {data.imagePosts.data.map(image => (
           
           <a
@@ -50,7 +54,7 @@ export default function Gallery() {
               <img src={`${url}${image.attributes.image.data.attributes.formats.thumbnail.url}`} alt="" />
           </a>
         ))}
-      </div>}
+      </div>} */}
       { usePhotoSwipe && <ImageGallery imageData={data.imagePosts.data} galleryID='portfolio-gallery'/> }
     </div>
   )
