@@ -28,11 +28,21 @@
 }
 
 .viewer-content img {
+    width: 85vh;
     max-width: 90%;
     max-height: 90%;
 }
 
-.btn-prev, .btn-next, .btn-close {
-    /*  */
+.btn-next, .btn-prev {
+    flex: 1;
+    font-size: 1.5em;
+}
+
+.btn-prev {
+    text-align: left;
+}
+
+.btn-next {
+    text-align: right;
 }
 

@@ -18,7 +18,7 @@ export default function SimpleGallery(props) {
   }
 
   const prevImage = () => {
-    if (currentImageIndex > 1) {
+    if (currentImageIndex > 0) {
       setCurrentImageIndex(currentImageIndex -1);
     } else setCurrentImageIndex(props.images.length -1);
   };
@@ -27,6 +27,7 @@ export default function SimpleGallery(props) {
     if (currentImageIndex < props.images.length - 1) {
       setCurrentImageIndex(currentImageIndex +1);
     } else setCurrentImageIndex(0);
+
   };
 
   const handleKeyDown = (e) => {
@@ -61,7 +62,7 @@ export default function SimpleGallery(props) {
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [viewerOpen]);
+  }, [viewerOpen, currentImageIndex]);
     
   return (
     <div className="gallery">
@@ -76,9 +77,10 @@ export default function SimpleGallery(props) {
         <div className='viewer'>
           <div className="viewer-content">
             <img src={`${url}${props.images[currentImageIndex].attributes.image.data.attributes.url}`} alt={'Full-screen Image'} />
-            <button className="btn-prev" onClick={prevImage}>Previous</button>
-            <button className="btn-next" onClick={nextImage}>Next</button>
           </div>
+          <button className="btn-prev" onClick={prevImage}>Previous</button>
+            <button className="btn-next" onClick={nextImage}>Next</button>
+
           <button className="btn-close" onClick={closeViewer}>Close</button> 
         </div>
       )}
