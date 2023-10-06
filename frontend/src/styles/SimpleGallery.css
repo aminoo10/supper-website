@@ -10,8 +10,8 @@
     cursor: pointer;
 }
 
-.viewer {
-    position: fixed;
+/* .viewer { */ .black-rectangle {
+    position: absolute;
     top:0;
     left: 0;
     width: 100%;
@@ -28,21 +28,36 @@
 }
 
 .viewer-content img {
+    transition: opacity 0.3s ease-in-out;
     width: 85vh;
     max-width: 90%;
     max-height: 90%;
 }
 
+.btn-next, .btn-prev, .btn-close {
+    cursor: pointer;
+    position: absolute;
+
+
+}
+
 .btn-next, .btn-prev {
-    flex: 1;
-    font-size: 1.5em;
+    bottom: 50%;
+    font-size: 1em;
 }
 
 .btn-prev {
+    left: 3%;
     text-align: left;
 }
 
 .btn-next {
+    right: 3%;
     text-align: right;
+}
+
+.btn-close {
+    right: 0;
+    top: 0;
 }
 

@@ -32,35 +32,29 @@ export default function SimpleGallery(props) {
 
   const handleKeyDown = (e) => {
     if (viewerOpen) {
-      // if (e.key === 'ArrowLeft') prevImage();
-      // else if (e.key === 'ArrowRight') nextImage();
-      // else if (e.key === 'Escape') closeViewer();
-
-      if (e.key === 'ArrowLeft'){
-        prevImage();
-        console.log('i pressed left!');
-        console.log(currentImageIndex);
-
-      } 
-      else if (e.key === 'ArrowRight') {
-        nextImage();
-        console.log('i pressed right!');
-        console.log(currentImageIndex);
-
-      } 
-      else if (e.key === 'Escape') {
-        closeViewer();
-        console.log('i pressed escape!');
-      }
-
+      if (e.key === 'ArrowLeft') prevImage();
+      else if (e.key === 'ArrowRight') nextImage();
+      else if (e.key === 'Escape') closeViewer();
     }
   }
 
+  // const handleClickOutside = (e) => {
+  //   if (viewerOpen && !document.querySelector('.viewer-content').contains(e.target) &&
+  //       !document.querySelector('.btn-prev').contains(e.target) &&
+  //       !document.querySelector('.btn-next').contains(e.target)) console.log('click!');
+
+  //   console.log(viewerOpen);
+  // }
+
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
+    // document.addEventListener('click', handleClickOutside); 
+
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
+      // document.removeEventListener('click', handleClickOutside);
+
     };
   }, [viewerOpen, currentImageIndex]);
     
@@ -75,12 +69,12 @@ export default function SimpleGallery(props) {
 
       {viewerOpen && (
         <div className='viewer'>
+          <div className='black-rectangle' onClick={closeViewer}/>
           <div className="viewer-content">
             <img src={`${url}${props.images[currentImageIndex].attributes.image.data.attributes.url}`} alt={'Full-screen Image'} />
           </div>
           <button className="btn-prev" onClick={prevImage}>Previous</button>
-            <button className="btn-next" onClick={nextImage}>Next</button>
-
+          <button className="btn-next" onClick={nextImage}>Next</button>
           <button className="btn-close" onClick={closeViewer}>Close</button> 
         </div>
       )}
